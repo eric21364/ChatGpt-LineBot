@@ -20,14 +20,14 @@ async def on_message(message):
     #排除自己的訊息，避免陷入無限循環
     if message.author == client.user:
         return
-    if event.message.text == "啟動":
+    if message.text == "啟動":
         working_status = True
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="我是時下流行的AI智能，目前可以為您服務囉，歡迎來跟我互動~"))
         return
 
-    if event.message.text == "安靜":
+    if message.text == "安靜":
         working_status = False
         line_bot_api.reply_message(
             event.reply_token,
