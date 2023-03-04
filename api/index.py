@@ -46,6 +46,14 @@ def handle_message(event):
 
     if not event.reply_token in working_status:
         working_status[event.reply_token] = True
+
+    if event.message.text == "測試":
+        working_status[event.reply_token] = True
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=insight.api_broadcast))
+        return
+
     if event.message.text == "啟動":
         working_status[event.reply_token] = True
         line_bot_api.reply_message(
