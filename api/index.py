@@ -42,6 +42,7 @@ def handle_message(event):
 
     insight = line_bot_api.get_insight_message_delivery('20191231')
     print(insight.api_broadcast)
+    app.logger.info(insight.api_broadcast)
 
     if not event.reply_token in working_status:
         working_status[event.reply_token] = True
